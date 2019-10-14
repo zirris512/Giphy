@@ -1,0 +1,27 @@
+label {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: white;
+}
+
+#game-input {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+button {
+    background-color: limegreen;
+}
+
+.container {
+    background: url("images/space-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-bottom: 2em;
+}
+
+p {
+    color: white;
+    font-size: 1.25em;
+}

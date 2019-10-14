@@ -5,7 +5,7 @@ function renderButtons () {
     $("#game-buttons").empty();
     for(var i = 0; i < gameNames.length; i++) {
         var gameButtons = $("<button>");
-        gameButtons.addClass("game-names");
+        gameButtons.addClass("game-names m-2");
         gameButtons.attr("data-game", gameNames[i]);
         gameButtons.text(gameNames[i]);
         $("#game-buttons").append(gameButtons);
@@ -23,7 +23,7 @@ $("#enter-game").on("click", function(event) {
 function getAPI() {
     var game = $(this).attr("data-game");
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + game + "&api_key=" + apiKey + "&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + game + "&api_key=" + apiKey + "&limit=12";
 
     $("#game-gifs").empty();
 
@@ -43,7 +43,11 @@ function getAPI() {
             gameDiv.addClass("col-md-4");
             var p = $("<p>").text("Rating: " + results[i].rating);
             var gameImg = $("<img>");
-            gameImg.attr("src", results[i].images.fixed_height.url);
+            gameImg.attr("src", results[i].images.fixed_height_still.url);
+            gameImg.addClass("gifs");
+            gameImg.attr("data-state", "still");
+            gameImg.attr("data-still", results[i].images.fixed_height_still.url);
+            gameImg.attr("data-animate", results[i].images.fixed_height.url);
             gameDiv.append(p);
             gameDiv.append(gameImg);
             $("#game-gifs").append(gameDiv);
@@ -52,6 +56,18 @@ function getAPI() {
 
 }
 
-
+function stateChange() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    }
+    else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+}
 
 $(document).on("click", ".game-names", getAPI);
+
+$(document).on("click", ".gifs", stateChange);
