@@ -10,6 +10,10 @@ An app where the user creates and saves tags. The user can use the tags to gener
 * Bootstrap
 * Giphy
 
+## Links
+
+Deployed Page - [https://zirris512.github.io/Giphy/](https://zirris512.github.io/Giphy/)
+
 ## Screenshots
 
 ![Giphy-Home](/assets/css/images/Giphy.png)
