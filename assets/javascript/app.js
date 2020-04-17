@@ -18,6 +18,7 @@ $("#enter-game").on("click", function(event) {
     gameNames.push(game);
 
     renderButtons();
+    $("#game-input").val("");
 })
 
 function getAPI() {
