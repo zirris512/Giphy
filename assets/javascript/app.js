@@ -5,7 +5,7 @@ function renderButtons () {
     $("#game-buttons").empty();
     for(var i = 0; i < gameNames.length; i++) {
         var gameButtons = $("<button>");
-        gameButtons.addClass("game-names m-2");
+        gameButtons.addClass("game-names m-2 btn btn-success");
         gameButtons.attr("data-game", gameNames[i]);
         gameButtons.text(gameNames[i]);
         $("#game-buttons").append(gameButtons);
