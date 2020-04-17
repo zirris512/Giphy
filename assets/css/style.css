@@ -9,10 +9,6 @@ label {
     margin-top: 5px;
 }
 
-button {
-    background-color: limegreen;
-}
-
 .container {
     background: url("images/space-background.jpg");
     background-repeat: no-repeat;
